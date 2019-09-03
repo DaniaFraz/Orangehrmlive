@@ -15,7 +15,7 @@ public class ConfigurationReader {
 			configFile.load(input);
 			input.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+
 			e.printStackTrace();
 		}
 

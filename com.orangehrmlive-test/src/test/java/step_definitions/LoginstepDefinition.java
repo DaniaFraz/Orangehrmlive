@@ -24,14 +24,11 @@ public class LoginstepDefinition {
 		// Path, chromeObject and URL
 		Drivers.getInstance().get(ConfigurationReader.getProperty("url"));
 
-		Thread.sleep(3000);
-
 		login = new HomePage();
 
 		Assert.assertTrue(Drivers.getInstance().getTitle().equals(ConfigurationReader.getProperty("Home.title")));
 
 		Assert.assertTrue(login.logo.isDisplayed());
-
 	}
 
 	@When("^I login as a admin/hr$")

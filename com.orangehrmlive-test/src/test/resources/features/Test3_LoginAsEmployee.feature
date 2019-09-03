@@ -4,6 +4,8 @@ Feature:
 	employee information fields (Personal Details)to complete 
 	the boarding process.
 	
+	Background:
+	Given  I am on the orangehrmlive webpage
 	Scenario: Add Employee Information 
 Given I am on the orangehrm webpage 
 When  I enter employee username "Malala123" 

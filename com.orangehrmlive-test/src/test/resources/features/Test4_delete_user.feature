@@ -1,6 +1,9 @@
 @Delete_User_test3 
 Feature: Delete employee as a Admin/hr 
 
+Background:
+Given  I am on the orangehrmlive webpage
+
 Scenario: Delete employee as a Admin/hr 
 	Given I am on the orangehrm webpage 
 	When  I input username in the username textbox 

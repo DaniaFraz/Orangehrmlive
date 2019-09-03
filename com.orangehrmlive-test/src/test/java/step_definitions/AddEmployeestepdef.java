@@ -11,16 +11,19 @@ import org.openqa.selenium.WebElement;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import junit.extensions.TestDecorator;
 import pages.AddEmployee;
 import pages.PIMPage;
 import pages.PersonalDetail;
 import utilities.Drivers;
+import utilities.ExcelUtilclass;
 
 public class AddEmployeestepdef {
 
 	PIMPage pimobject = new PIMPage();
 	AddEmployee empl = new AddEmployee();
 	PersonalDetail personaldetail = new PersonalDetail();
+	List<Map<String, String>> TestData;
 
 	@When("^I go to PIM tab from menu$")
 	public void i_go_to_PIM_tab_from_menu() throws Throwable {
@@ -182,6 +185,43 @@ public class AddEmployeestepdef {
 			empl.save.click();
 			Thread.sleep(3000);
 		}
+
+	}
+
+	@Then("^Employee accounts are created and ready for further use$")
+	public void employee_accounts_are_created_and_ready_for_further_use() throws Throwable {
+
+		// click on PIM
+		pimobject.pim.click();
+
+		// Open the Utility
+		ExcelUtilclass XlUtil = new ExcelUtilclass("C:\\Users\\dania\\OneDrive\\Documents\\ExcelFile\\orangehrm.xls",
+				"Sheet1");
+		TestData = XlUtil.getDataList();
+		
+		// With header only
+				for (Map<String,String> empdata : TestData) {
+					System.out.println(empdata);
+				
+					empl.addEmp.click();
+					Thread.sleep(3000);
+					// add lastname
+					empl.firstName.sendKeys(empdata.get("fname"));
+					// add lastname
+					empl.lastName.sendKeys(empdata.get("lname"));
+					// select the checkbox
+					empl.checkBox.click();
+					// enter username
+					empl.userName.sendKeys(empdata.get("username"));
+					// enter password
+					empl.passWord.sendKeys(empdata.get("password"));
+					// confirm password
+					empl.RepassWord.sendKeys(empdata.get("confirmpassword"));
+
+					empl.
+					// save
+					empl.save.click();
+					Thread.sleep(3000);
 
 	}
 

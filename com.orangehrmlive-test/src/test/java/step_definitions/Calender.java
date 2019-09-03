@@ -35,5 +35,6 @@ public class Calender {
 	public static void selectdatebyJS(WebDriver driver, WebElement element, String dateeval) {
 		JavascriptExecutor Js = ((JavascriptExecutor) driver);
 		Js.executeScript("arguments[0].setAttribute('value',  '" + dateeval + "');", element);
+
 	}
 }

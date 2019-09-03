@@ -4,7 +4,8 @@ Feature: Login  as admin/hr
 	I want to add a New Employee
 	so that the HR & the employee can complete the boarding process.
 	
-	
+	Background:
+	Given  I am on the orangehrmlive webpage
 Scenario: Add an employee 
 
 	Given I am on the orangehrm webpage

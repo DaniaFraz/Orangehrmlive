@@ -25,6 +25,7 @@ public class LoginAsAnEmployee {
 		login = new HomePage();
 
 		login.username.sendKeys(username);
+
 	}
 
 	@When("^I enter employee password \"([^\"]*)\"$")
